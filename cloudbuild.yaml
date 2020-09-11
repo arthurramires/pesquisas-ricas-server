@@ -1,0 +1,14 @@
+steps:
+
+- id: "Rodando docker-compose"
+  name: 'gcr.io/$PROJECT_ID/docker-compose:1.25.5'
+  args: ['-f','docker-compose.yaml','up','-d']
+
+- id: "Rodando npm"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec','-t','npm','i']
+
+- id: "Rodando migrations"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec','-t','app','yarn','sequelize','db:migrate']
+
