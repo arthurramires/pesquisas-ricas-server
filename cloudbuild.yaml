@@ -6,7 +6,7 @@ steps:
 
 - id: "Rodando npm"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['exec','-t','npm','i']
+  args: ['exec','-t','app','npm','i']
 
 - id: "Rodando migrations"
   name: 'gcr.io/cloud-builders/docker'
