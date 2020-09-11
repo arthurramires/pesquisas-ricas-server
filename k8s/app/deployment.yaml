@@ -18,7 +18,7 @@ spec:
       - name: app
         image: img-app-deployment
         ports:
-        - containerPort: 80
+        - containerPort: 3333
 
         envFrom:
         - configMapRef:

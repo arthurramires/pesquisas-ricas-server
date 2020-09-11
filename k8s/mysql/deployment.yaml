@@ -1,36 +1,41 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: potsgres-server
+  name: postgres-server
 spec: #spec do deployment
   replicas: 1
   
   selector: # selector utilizado para criar o service
     matchLabels:
-      app: potsgres-server
+      app: postgres-server
       tier: db
 
   template: # referente ao POD
     metadata:
       labels:
-        app: potsgres-server
+        app: postgres-server
         tier: db
     spec: # spec do POD
       containers:
       - image: postgres
-        name: potsgres-server
+        name: postgres-server
+
+        env:
+          - name: POSTGRES_PASSWORD
+            value: docker
+              
         
         ports:
         - containerPort: 5432
 
         volumeMounts: #monta o volume efetivamente
-        - name: potsgres-persistent-storage
+        - name: postgres-persistent-storage
           mountPath: /var/lib/postgresql
 
       volumes: # definicao do volume
-      - name: potsgres-persistent-storage
+      - name: postgres-persistent-storage
         persistentVolumeClaim:
-          claimName: potsgres-pv-claim
+          claimName: postgres-pv-claim
         
 
 
