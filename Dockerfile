@@ -26,8 +26,6 @@ RUN npm i
 
 EXPOSE 3333
 
-# RUN yarn sequelize db:migrate
-
 ENTRYPOINT npm run dev:queue
 
 
