@@ -4,7 +4,7 @@ metadata:
   name: postgres-service
 spec:
   ports:
-    - port: 3306
+    - port: 5432
   selector:
     app: postgres-server
     tier: db
