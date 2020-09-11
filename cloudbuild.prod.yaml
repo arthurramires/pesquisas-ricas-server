@@ -2,27 +2,19 @@ steps:
 
   - id: "Rodando docker-compose"
     name: 'gcr.io/$PROJECT_ID/docker-compose:1.25.5'
-    args: ['-f','docker-compose.cloudbuild.yaml','up','-d']
-  
-  - id: "Rodando docker ps"
+    args: ['-f','docker-compose.yaml','up','-d']
+
+  - id: "Rodando npm"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['ps']
-  
-  - id: "Rodando Yarn"
-    name: 'gcr.io/cloud-builders/docker'
-    args: ['exec','-t','app','yarn']
-  
-  - id: "Copiando .env"
-    name: 'gcr.io/cloud-builders/docker'
-    args: ['exec','-t','app','cp','.env.example','.env']
-  
+    args: ['exec','-t','app','npm','i']
+
   - id: "Rodando migrations"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec','-t','app','yarn','sequelize','db:migrate']    
+    args: ['exec','-t','app','yarn','sequelize','db:migrate']  
   
-  - id: "Building image using Dockerfile.prod"
+  - id: "Building image using Dockerfile"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['build','-t','gcr.io/$PROJECT_ID/app:$SHORT_SHA','-f','Dockerfile.prod','.']
+    args: ['build','-t','gcr.io/$PROJECT_ID/app:$SHORT_SHA','-f','Dockerfile','.']
   
   - id: "Pushing image"
     name: 'gcr.io/cloud-builders/docker'

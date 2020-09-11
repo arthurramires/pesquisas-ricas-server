@@ -15,10 +15,12 @@ RUN npm install dotenv-extended
 RUN npm run build
 
 COPY package*.json /usr/app/dist
+COPY .env.example /usr/app/dist
 
 WORKDIR /usr/app/dist
 
 RUN cp sequelizerc .sequelizerc
+RUN cp .env.example .env
 
 RUN ls
 
