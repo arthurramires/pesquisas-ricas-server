@@ -23,8 +23,7 @@ spec: #spec do deployment
         env:
           - name: POSTGRES_PASSWORD
             value: docker
-              
-        
+      
         ports:
         - containerPort: 5432
 
