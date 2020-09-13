@@ -41,8 +41,7 @@ steps:
 
   - id: "Rodando migrations inside Pods"
     name: 'gcr.io/cloud-builders/kubectl'
-    entrypoint: '/bin/sh'
-    args: ['exec','-it','$(kubectl get pod -l app=app -o custom-columns=:metadata.name)','yarn','sequelize','db:migrate']
+    args: ['exec','-it','$(kubectl get pod -l app=app -o custom-columns=:metadata.name)','-- sh','yarn','sequelize','db:migrate']
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
       - 'CLOUDSDK_CONTAINER_CLUSTER=pesquisas-ricas-server'  
