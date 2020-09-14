@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: app
-        image: img-app-deployment
+        image: gcr.io/pesquisas-ricas-server/app@sha256:bfa8457e8c870bf52cbc0c631cc3aa1af0d3e695be2767834c16e57d581214ea
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
 
