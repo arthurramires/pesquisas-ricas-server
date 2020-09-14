@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: gcr.io/pesquisas-ricas-server/app:latest
+        image: img-app-deployment
         ports:
         - containerPort: 8080
 
