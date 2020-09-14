@@ -17,7 +17,10 @@ const upload = multer(multerConfig);
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionControler.store);
 
-routes.get('/', (req, res) => res.json({ result: 'Ok' }));
+routes.get('/', (req, res) => {
+    var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
+    res.json({ ip });
+});
 
 routes.get('/quizzes/:password/participant', QuizController.participant);
 routes.post('/quizzes/:id/answers', QuizController.answers);
