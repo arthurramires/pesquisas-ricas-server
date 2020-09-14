@@ -39,9 +39,4 @@ steps:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
       - 'CLOUDSDK_CONTAINER_CLUSTER=pesquisas-ricas-server'
 
-  # - id: "Rodando migrations inside Pods"
-  #   name: 'gcr.io/cloud-builders/kubectl'
-  #   args: ['exec','-t','$(get pod -l app=app -o custom-columns=:metadata.name)','yarn sequelize db:migrate']
-  #   env:
-  #     - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
-  #     - 'CLOUDSDK_CONTAINER_CLUSTER=pesquisas-ricas-server'  
+        
