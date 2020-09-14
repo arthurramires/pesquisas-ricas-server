@@ -26,7 +26,7 @@ steps:
     args: 
       - '-c'
       - |
-        sed 's#gcr.io/pesquisas-ricas-server/app@#gcr.io/$PROJECT_ID/app:latest#g' k8s/app/deployment.yaml > k8s/app/deployment-new.yaml;
+        sed 's#img-app-deployment#gcr.io/$PROJECT_ID/app:$SHORT_SHA#g' k8s/app/deployment.yaml > k8s/app/deployment-new.yaml;
         cat k8s/app/deployment-new.yaml
 
   - id: 'Deploying k8s'
@@ -37,4 +37,5 @@ steps:
       - 'k8s/app/deployment-new.yaml'
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=pesquisas-ricas-server'  
+      - 'CLOUDSDK_CONTAINER_CLUSTER=pesquisas-ricas-server'
+  
