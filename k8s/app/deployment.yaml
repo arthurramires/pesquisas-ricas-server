@@ -7,6 +7,7 @@ spec:
   selector:
     matchLabels:
       app: app
+  
   template:
     metadata:
       labels:
@@ -15,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: img-app-deployment 
+        image: gcr.io/pesquisas-ricas-server/app:latest
         ports:
         - containerPort: 8080
 

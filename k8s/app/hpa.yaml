@@ -3,8 +3,8 @@ kind: HorizontalPodAutoscaler
 metadata:
     name: app-hpa
 spec:
-    maxReplicas: 3
-    minReplicas: 1
+    maxReplicas: 6
+    minReplicas: 2
     scaleTargetRef:
         apiVersion: extensions/v1beta1
         kind: Deployment
