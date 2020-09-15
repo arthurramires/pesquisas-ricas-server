@@ -12,11 +12,12 @@ spec:
     metadata:
       labels:
         app: app
-    
+
     spec:
       containers:
       - name: app
-        image: img-app-deployment 
+        image: gcr.io/pesquisas-ricas-server/app:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
 
