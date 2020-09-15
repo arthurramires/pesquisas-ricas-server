@@ -7,16 +7,15 @@ spec:
   selector:
     matchLabels:
       app: app
-  
   template:
     metadata:
       labels:
         app: app
-    
+
     spec:
       containers:
       - name: app
-        image: img-app-deployment
+        image: gcr.io/pesquisas-ricas-server/app@sha256:b3aa3e192732602129b7d805778bff190b5a55f0fc32561dd5c6d4fa3e00e3e8
         ports:
         - containerPort: 8080
 
