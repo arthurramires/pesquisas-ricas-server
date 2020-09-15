@@ -18,7 +18,7 @@ routes.post('/users', UserController.store);
 routes.post('/sessions', SessionControler.store);
 
 routes.get('/', (req, res) => {
-    var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
+    var ip = req.connection.remoteAddress;
     res.json({ ip });
 });
 
