@@ -18,8 +18,7 @@ routes.post('/users', UserController.store);
 routes.post('/sessions', SessionControler.store);
 
 routes.get('/', (req, res) => {
-    var ip = req.connection.remoteAddress;
-    res.json({ ip });
+    res.json({ result: 'OK' });
 });
 
 routes.get('/quizzes/:password/participant', QuizController.participant);
