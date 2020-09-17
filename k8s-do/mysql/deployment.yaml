@@ -4,7 +4,7 @@ metadata:
   name: postgres-server
 spec: #spec do deployment
   replicas: 1
-
+  
   selector: # selector utilizado para criar o service
     matchLabels:
       app: postgres-server
@@ -23,7 +23,7 @@ spec: #spec do deployment
         env:
           - name: POSTGRES_PASSWORD
             value: docker
-
+      
         ports:
         - containerPort: 5432
 
@@ -35,6 +35,6 @@ spec: #spec do deployment
       - name: postgres-persistent-storage
         persistentVolumeClaim:
           claimName: postgres-pv-claim
-
+        
 
 

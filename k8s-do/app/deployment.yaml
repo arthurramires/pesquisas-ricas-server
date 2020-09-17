@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: gcr.io/pesquisas-ricas-server/app:latest
+        image: docker.io/arthurramires/pesquisas-ricas-server
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -29,8 +29,6 @@ spec:
         - name: app-conf
           mountPath: /usr/app/.env
           subPath: .env
-        - name: image-storage
-          mountPath: /usr/app/tmp/
 
 
       volumes:
@@ -40,6 +38,5 @@ spec:
           items:
             - key: env
               path: .env
-      - name: image-storage
-        persistentVolumeClaim:
-          claimName: app-pv-claim
+
+
