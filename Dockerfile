@@ -12,6 +12,8 @@ RUN npm i
 
 RUN npm install dotenv-extended
 
+RUN npm install stress-node
+
 RUN npm run build
 
 COPY package*.json /usr/app/dist
