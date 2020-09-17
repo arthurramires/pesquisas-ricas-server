@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-conf
+data:
+  env: |
+    APP_URL=http://localhost
+    DB_DIALECT=postgres
+    DB_HOST=postgres-service
+    DB_USER=postgres
+    DB_PASS=docker
+    DB_NAME=bull
+
+    REDIS_HOST=redis-service
+    REDIS_PASSWORD=null
+    REDIS_PORT=6379
+
+    MAIL_HOST=smtp.mailtrap.io
+    MAIL_PORT=2525
+    MAIL_USER=5233970d52909c
+    MAIL_PASS=bf970bde54e15c
+
+    AWS_ACCESS_KEY_ID=
+    AWS_SECRET_ACCESS_KEY=
+    AWS_DEFAULT_REGION=us-east-1
+    AWS_BUCKET=
