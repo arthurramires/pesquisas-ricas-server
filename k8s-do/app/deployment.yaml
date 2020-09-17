@@ -29,6 +29,8 @@ spec:
         - name: app-conf
           mountPath: /usr/app/.env
           subPath: .env
+        - name: image-storage
+          mountPath: /usr/app/tmp
 
 
       volumes:
@@ -38,5 +40,8 @@ spec:
           items:
             - key: env
               path: .env
+      - name: image-storage
+        persistentVolumeClaim:
+          claimName: app-pv-claim
 
 
