@@ -3,9 +3,9 @@ var stress = require('stress-node');
 stress({
 	url: 'http://google.com',
 	method: 'GET',
-	amount: 1000,
-	timeout: 60000, 
-	concurrent: 5,
+	amount: 6000,
+	timeout: 600000, 
+	concurrent: 30,
 	data: null,
 }, function(report) {
 });
