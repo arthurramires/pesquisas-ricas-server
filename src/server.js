@@ -4,10 +4,9 @@ stress({
 	url: 'http://google.com',
 	method: 'GET',
 	amount: 1000,
+	timeout: 60000, 
 	concurrent: 5,
 	data: null,
-	progress: function(report) {
-	}
 }, function(report) {
 });
 
