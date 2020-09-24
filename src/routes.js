@@ -18,7 +18,7 @@ routes.post('/users', UserController.store);
 routes.post('/sessions', SessionControler.store);
 
 routes.get('/', (req, res) => {
-    res.json({ result: 'OK' });
+    res.json({ podName: process.env.MY_POD_NAME, nodeName: process.env.MY_NODE_NAME });
 });
 
 routes.get('/quizzes/:password/participant', QuizController.participant);
