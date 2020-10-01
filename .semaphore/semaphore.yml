@@ -19,4 +19,3 @@ blocks:
             - name: npm install
                 commands:
                     - npm install
-
