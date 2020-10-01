@@ -11,4 +11,8 @@ blocks:
         - name: npm install
           commands:
             - npm install
-                    
+promotions:
+    - name: Dockerize
+        pipeline_file: docker-build.yml
+        auto_promote_on:
+        - result: passed
