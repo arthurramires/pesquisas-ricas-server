@@ -3,5 +3,6 @@
   for ($i = 0; $i <= 1000000; $i++) {
     $x += sqrt($x);
   }
-  echo "OK!";
+  echo -en '\n';
+  printenv MY_POD_NAME;
 ?>

@@ -1,0 +1,22 @@
+version: v1.0
+name: pesquisas-ricas
+
+agent:
+    machine:
+      type: e1-standard-2
+      os_image: ubuntu1804
+blocks:
+    - name: Install dependencies
+      task:
+        env_vars:
+            - name: NODE_ENV
+              value: test
+        prologue:
+            commands:
+                - checkout
+                - nvm use
+        jobs:
+            - name: npm install
+                commands:
+                    - npm install
+

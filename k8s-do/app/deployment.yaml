@@ -16,10 +16,19 @@ spec:
     spec:
       containers:
       - name: app
-        image: docker.io/arthurramires/pesquisas-ricas-server
+        image: docker.io/arthurramires/pesquisas-ricas-server:v3
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
+        env:
+          - name: MY_NODE_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
+          - name: MY_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
 
         envFrom:
         - configMapRef:
@@ -29,6 +38,8 @@ spec:
         - name: app-conf
           mountPath: /usr/app/.env
           subPath: .env
+        # - name: test-volume
+        #   mountPath: /usr/app/tmp
         - name: image-storage
           mountPath: /usr/app/tmp
 
@@ -40,8 +51,15 @@ spec:
           items:
             - key: env
               path: .env
+              volumes:
       - name: image-storage
-        persistentVolumeClaim:
-          claimName: app-pv-claim
+      #   persistentVolumeClaim:
+      #     claimName: nfs
+        hostPath:
+          path: /tmp
+          type: Directory
+      # - name: image-storage
+      #   persistentVolumeClaim:
+      #     claimName: app-pv-claim
 
 
