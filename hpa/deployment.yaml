@@ -16,9 +16,18 @@ spec:
     spec:
       containers:
       - name: php-apache-hpa
-        image: arthurramires/php-apache-hpa:latest
-        ports:
-        - containerPort: 80
+        image: k8s.gcr.io/busybox
+        command: [ "sh", "-c"]
+        args:
+        - while true; do
+            echo -en '\n';
+            printenv MY_POD_NAME;
+          done;
+        env:
+          - name: MY_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
 
 ---        
 
